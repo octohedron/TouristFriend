@@ -9,6 +9,8 @@ TLDR: `http://localhost:5000/api/40000/29.743883,-95.361621/restaurants`
 
 URI Breakdown: `http://localhost:5000/api/{meters}/{latitude},{longitude}/{query}`
 
+Try it at: `http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants`
+
 ## Setup
 You'll need to acquire API keys for each of the individual services and add them to api_keys.py.
 
