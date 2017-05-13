@@ -36,5 +36,7 @@ def search(lat, lng, distance, query):
                                       business['location'][
                                           'display_address'][0],
                                       business['rating'],
-                                      business['review_count']))
+                                      business['review_count'],
+                                      (business["coordinates"]["latitude"],
+                                       business["coordinates"]["longitude"])))
     return business_list

@@ -4,7 +4,7 @@ from api_keys import F_CLIENT_ID, F_CLIENT_SECRET
 from business import Business
 import requests
 
-SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=50&query={}&client_id={}&client_secret={}&v={}'
+SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=10&query={}&client_id={}&client_secret={}&v={}'
 
 
 def search(lat, lng, distance, query):
@@ -29,7 +29,8 @@ def search(lat, lng, distance, query):
             venue_list.append(Business(venue['name'],
                                        venue['location']['address'],
                                        venue['rating'],
-                                       venue['ratingSignals']))
+                                       venue['ratingSignals'],
+                                       (venue['location']['lat'], venue['location']['lng'])))
     except Exception, e:
         print e
 

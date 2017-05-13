@@ -33,8 +33,11 @@ def write_businesses(businesses):
     businesses.sort(key=lambda x: x.bayesian, reverse=True)
     result = []
     for business in businesses:
-        result.append({'Name': business.name.encode('utf-8'),
-                       'Rating': '{0:.2f}'.format(business.bayesian),
+        result.append(
+            {'Location':
+             '{},{}'.format(business.location[0], business.location[1]),
+             'Name': business.name.encode('utf-8'),
+             'Rating': '{0:.2f}'.format(business.bayesian),
                        'Number of Ratings': business.rating_count,
                        'Sources': business.source_count})
     return result
@@ -54,7 +57,6 @@ def execute_search(locations, distance, query):
 
         businesses = []
         for lat, lng in locations:
-            print 'Searching {} at lat: {} long: {} ...'.format(engine.__name__, lat, lng)
             businesses.extend(engine.search(lat, lng, distance, query))
 
         # Remove duplicates from API call overlap
@@ -84,7 +86,6 @@ def execute_search(locations, distance, query):
         # Add this search engine's list to full business list
         full_business_list.extend(businesses)
 
-    print 'Found {} total businesses!'.format(len(full_business_list))
     return full_business_list
 
 

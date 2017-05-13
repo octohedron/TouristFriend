@@ -47,4 +47,6 @@ def search_place(place_id):
     return Business(place['name'],
                     place['formatted_address'].split(',')[0],
                     place['rating'],
-                    len(place['reviews']))
+                    len(place['reviews']),
+                    (place["geometry"]["location"]["lat"],
+                        place["geometry"]["location"]["lng"]))

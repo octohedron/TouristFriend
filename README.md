@@ -15,22 +15,25 @@ $ curl http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants
 ```JavaScript
 [
   {
-    "Rating": "9.35",
+    "Number of Ratings": 868,
+    "Rating": "9.49",
     "Sources": 1,
-    "Name": "Le Comptoir Général",
-    "Number of Ratings": 1289
+    "Location": "37.761594,-122.42427",
+    "Name": "Pizzeria Delfina"
   },
   {
-    "Rating": "8.83",
-    "Sources": 2,
-    "Name": "Marlusse et Lapin",
-    "Number of Ratings": 130
+    "Number of Ratings": 404,
+    "Rating": "9.39",
+    "Sources": 1,
+    "Location": "37.7682006597,-122.421604657",
+    "Name": "Shizen"
   },
   {
-    "Rating": "8.81",
+    "Number of Ratings": 45,
+    "Rating": "9.32",
     "Sources": 1,
-    "Name": "Harry's New York",
-    "Number of Ratings": 426
+    "Location": "37.763093,-122.424281",
+    "Name": "Turner's Kitchen"
   },
   // Up to 15 results...
 ]
