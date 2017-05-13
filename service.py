@@ -25,7 +25,7 @@ def bayesian(R, v, m, C):
 
 def write_businesses(businesses):
     """
-    Saves list of businesses to a .csv file sorted by Bayesian rating
+    Returns a list of businesses for the API
 
     :param filename: Output file name
     :param businesses: List of businesses to write

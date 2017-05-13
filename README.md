@@ -1,15 +1,42 @@
 # TouristFriend
 
 
-TouristFriend is an API for searching and combining results from Google Places, Yelp, and Foursquare, returns a list of businesses by location and type.
+TouristFriend is an API for searching and combining results from Google Places, Yelp, and Foursquare
 
-Results are combined by their ratings as a Bayesian estimate to rank them more accurately.
+Returns a combined list of places ranked by their ratings as a Bayesian estimate
 
-TLDR: `http://localhost:5000/api/40000/29.743883,-95.361621/restaurants`
+### Try it out: 
+```Bash
+$ curl http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants
+```
 
-URI Breakdown: `http://localhost:5000/api/{meters}/{latitude},{longitude}/{query}`
+## Sample output
 
-Try it at: `http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants`
+```JavaScript
+[
+  {
+    "Rating": "9.35",
+    "Sources": 1,
+    "Name": "Le Comptoir Général",
+    "Number of Ratings": 1289
+  },
+  {
+    "Rating": "8.83",
+    "Sources": 2,
+    "Name": "Marlusse et Lapin",
+    "Number of Ratings": 130
+  },
+  {
+    "Rating": "8.81",
+    "Sources": 1,
+    "Name": "Harry's New York",
+    "Number of Ratings": 426
+  },
+  // Up to 15 results...
+]
+```
+
+URI Breakdown: `http://touristfriend.club/api/{meters}/{latitude},{longitude}/{query}`
 
 ## Setup
 You'll need to acquire API keys for each of the individual services and add them to api_keys.py.
@@ -37,36 +64,11 @@ $ export YELP_SECRET=YOUR_YELP_SECRET
 
 ### Run it
 ```Bash
-$ flask run --host=0.0.0.0
+$ python api.py
 ```
 ### Try it
 ```Bash
 $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
-```
-## Output
-
-```JavaScript
-[
-  {
-    "Rating": "9.35",
-    "Sources": 1,
-    "Name": "Le Comptoir Général",
-    "Number of Ratings": 1289
-  },
-  {
-    "Rating": "8.83",
-    "Sources": 2,
-    "Name": "Marlusse et Lapin",
-    "Number of Ratings": 130
-  },
-  {
-    "Rating": "8.81",
-    "Sources": 1,
-    "Name": "Harry's New York",
-    "Number of Ratings": 426
-  },
-  // Up to 15 results...
-]
 ```
 
 LICENSE: MIT
