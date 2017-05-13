@@ -15,23 +15,23 @@ $ curl http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants
 ```JavaScript
 [
   {
-    "Number of Ratings": 868,
     "Rating": "9.49",
     "Sources": 1,
+    "Number_of_Ratings": 868,
     "Location": "37.761594,-122.42427",
     "Name": "Pizzeria Delfina"
   },
   {
-    "Number of Ratings": 404,
     "Rating": "9.39",
     "Sources": 1,
+    "Number_of_Ratings": 404,
     "Location": "37.7682006597,-122.421604657",
     "Name": "Shizen"
   },
   {
-    "Number of Ratings": 45,
     "Rating": "9.32",
     "Sources": 1,
+    "Number_of_Ratings": 45,
     "Location": "37.763093,-122.424281",
     "Name": "Turner's Kitchen"
   },

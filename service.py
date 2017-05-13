@@ -38,7 +38,7 @@ def write_businesses(businesses):
              '{},{}'.format(business.location[0], business.location[1]),
              'Name': business.name.encode('utf-8'),
              'Rating': '{0:.2f}'.format(business.bayesian),
-                       'Number of Ratings': business.rating_count,
+                       'Number_of_Ratings': business.rating_count,
                        'Sources': business.source_count})
     return result
 
