@@ -6,6 +6,7 @@ TouristFriend is an API for searching and combining results from Google Places, 
 Results are combined by their ratings as a Bayesian estimate to rank them more accurately.
 
 TLDR: `http://localhost:5000/api/40000/29.743883,-95.361621/restaurants`
+
 URI Breakdown: `http://localhost:5000/api/{meters}/{latitude},{longitude}/{query}`
 
 ## Setup
@@ -42,7 +43,7 @@ $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
 ```
 ## Output
 
-```Json
+```JavaScript
 [
   {
     "Rating": "9.35",
@@ -62,7 +63,7 @@ $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
     "Name": "Harry's New York",
     "Number of Ratings": 426
   },
-  ...
+  // Up to 15 results...
 ]
 ```
 
