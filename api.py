@@ -1,8 +1,10 @@
 from flask import Flask
 import json
 from service import execute_search, combine_duplicate_businesses, write_businesses
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/api/<distance>/<location>/<query>')
