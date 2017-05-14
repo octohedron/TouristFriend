@@ -21,9 +21,10 @@ def search(lat, lng, distance, query):
                             query, F_CLIENT_ID, F_CLIENT_SECRET,
                             time.strftime("%Y%m%d"))
     venue_list = []
-    try:
-        data = requests.get(url).json()
-        for i in range(0, 5):
+
+    data = requests.get(url).json()
+    for i in range(0, 5):
+        try:
             item = data['response']['groups'][0]['items'][i]
             venue = item['venue']
             venue_list.append(Business(venue['name'],
@@ -31,7 +32,7 @@ def search(lat, lng, distance, query):
                                        venue['rating'],
                                        venue['ratingSignals'],
                                        (venue['location']['lat'], venue['location']['lng'])))
-    except Exception, e:
-        print e
+        except:
+            pass
 
     return venue_list

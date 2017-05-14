@@ -63,12 +63,17 @@ def execute_search(locations, distance, query):
         names = set()
         filtered_list = []
         for business in businesses:
-            if business.name not in names:
-                filtered_list.append(business)
-                names.add(business.name)
+            if business is not None:
+                if business.name not in names:
+                    filtered_list.append(business)
+                    names.add(business.name)
         businesses = filtered_list
         # Calculate low threshold and average ratings
-        low_threshold = min(business.rating_count for business in businesses)
+        try:
+            low_threshold = min(
+                business.rating_count for business in businesses)
+        except:
+            break
         average_rating = sum(
             business.rating for business in businesses) / len(businesses)
         # Convert to 10 point scale

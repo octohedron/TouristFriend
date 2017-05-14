@@ -30,13 +30,18 @@ def search(lat, lng, distance, query):
                         params=params, headers=headers).json()
 
     business_list = []
+
     for i in range(0, 5):
-        business = data['businesses'][i]
-        business_list.append(Business(business['name'],
-                                      business['location'][
-                                          'display_address'][0],
-                                      business['rating'],
-                                      business['review_count'],
-                                      (business["coordinates"]["latitude"],
-                                       business["coordinates"]["longitude"])))
+        try:
+            business = data['businesses'][i]
+            business_list.append(Business(business['name'],
+                                          business['location'][
+                                              'display_address'][0],
+                                          business['rating'],
+                                          business['review_count'],
+                                          (business["coordinates"]["latitude"],
+                                           business["coordinates"]["longitude"])))
+        except:
+            pass
+
     return business_list

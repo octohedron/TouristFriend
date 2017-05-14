@@ -19,17 +19,14 @@ def search(lat, lng, distance, query):
     url = SEARCH_URL.format(lat, lng, distance, query, G_API_KEY)
     place_list = []
 
-    try:
-        data = requests.get(url).json()
-        for i in range(0, 5):
+    data = requests.get(url).json()
+    for i in range(0, 5):
+        try:
             result = data['results'][i]
-            try:
-                place = search_place(result['place_id'])
-                place_list.append(place)
-            except Exception:
-                pass
-    except Exception, e:
-        print e
+            place = search_place(result['place_id'])
+            place_list.append(place)
+        except:
+            pass
 
     return place_list
 
@@ -44,9 +41,12 @@ def search_place(place_id):
     url = PLACE_URL.format(place_id, G_API_KEY)
     data = requests.get(url).json()
     place = data['result']
-    return Business(place['name'],
-                    place['formatted_address'].split(',')[0],
-                    place['rating'],
-                    len(place['reviews']),
-                    (place["geometry"]["location"]["lat"],
-                        place["geometry"]["location"]["lng"]))
+    try:
+        return Business(place['name'],
+                        place['formatted_address'].split(',')[0],
+                        place['rating'],
+                        len(place['reviews']),
+                        (place["geometry"]["location"]["lat"],
+                            place["geometry"]["location"]["lng"]))
+    except:
+        pass
