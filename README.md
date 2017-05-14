@@ -5,7 +5,7 @@ TouristFriend is an API for searching and combining results from Google Places, 
 
 Returns a combined list of places ranked by their ratings as a Bayesian estimate
 
-### Try it out: 
+### Try it out
 ```Bash
 $ curl http://touristfriend.club/api/40000/29.743883,-95.361621/restaurants
 ```
@@ -61,17 +61,26 @@ $ export G_API=YOUR_GOOGLE_API_KEY
 # Yelp
 $ export YELP_ID=YOUR_YELP_ID
 $ export YELP_SECRET=YOUR_YELP_SECRET
-```
 
-## Usage
+```
+### Install dependencies
+
+```Bash
+pip install -U Flask flask-cors
+```
 
 ### Run it
+
 ```Bash
-$ python api.py
+$ python api.py &
 ```
+
 ### Try it
+
 ```Bash
 $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
 ```
+
+If you want to stop it `pkill -f api.py`
 
 LICENSE: MIT
