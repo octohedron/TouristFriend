@@ -49,7 +49,7 @@ def execute_search(locations, distance, query):
 
     :param locations: User supplied lat/long point(s)
     :param distance: How far to search (meters)
-    :param query: Query for the search engines
+    :param query: The niche, i.e. restaurants, bars, etc
     :returns: Full list of businesses
     """
     full_business_list = []

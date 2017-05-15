@@ -14,6 +14,7 @@ def search(lat, lng, distance, query):
     :param lat: Latitude of the request
     :param long: Longitude of the request
     :param distance: Distance to search (meters)
+    :param query: The niche, i.e. restaurants, bars, etc
     :returns: List of retrieved venues
     """
 
