@@ -4,7 +4,7 @@ from api_keys import F_CLIENT_ID, F_CLIENT_SECRET
 from business import Business
 import requests
 
-SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=10&query={}&client_id={}&client_secret={}&v={}'
+SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=5&query={}&client_id={}&client_secret={}&v={}'
 
 
 def search(lat, lng, distance, query):
@@ -24,7 +24,7 @@ def search(lat, lng, distance, query):
     venue_list = []
 
     data = requests.get(url).json()
-    for i in range(0, 5):
+    for i in range(0, len(data['response']['groups'][0]['items'])):
         try:
             item = data['response']['groups'][0]['items'][i]
             venue = item['venue']
