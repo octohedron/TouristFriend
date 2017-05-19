@@ -1,5 +1,5 @@
-from api_keys import G_API_KEY
-from business import Business
+from api.api_keys import G_API_KEY
+from api.business import Business
 import requests
 
 SEARCH_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&types={}&key={}'
@@ -21,11 +21,13 @@ def search(lat, lng, distance, query):
     place_list = []
 
     data = requests.get(url).json()
-    for i in range(0, 5):
+    for i in range(0, len(data['results'])):
         try:
             result = data['results'][i]
             place = search_place(result['place_id'])
             place_list.append(place)
+            if len(place_list) == 5:
+                break
         except:
             pass
 
@@ -49,5 +51,5 @@ def search_place(place_id):
                         len(place['reviews']),
                         (place["geometry"]["location"]["lat"],
                             place["geometry"]["location"]["lng"]))
-    except:
+    except IndexError:
         pass

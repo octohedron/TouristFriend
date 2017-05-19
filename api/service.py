@@ -1,6 +1,6 @@
-import foursquare
-import google
-import yelp
+import external.foursquare as foursquare
+import external.google as google
+import external.yelp as yelp
 
 
 def bayesian(R, v, m, C):
@@ -73,7 +73,7 @@ def execute_search(locations, distance, query):
             low_threshold = min(
                 business.rating_count for business in businesses)
         except:
-            break
+            continue
         average_rating = sum(
             business.rating for business in businesses) / len(businesses)
         # Convert to 10 point scale

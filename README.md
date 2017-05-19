@@ -62,6 +62,8 @@ $ export G_API=YOUR_GOOGLE_API_KEY
 $ export YELP_ID=YOUR_YELP_ID
 $ export YELP_SECRET=YOUR_YELP_SECRET
 
+# Flask
+$ export FLASK_APP=$(pwd)/api/__init__.py
 ```
 ### Install dependencies
 
@@ -72,7 +74,10 @@ pip install -U Flask flask-cors
 ### Run it
 
 ```Bash
-$ python api.py &
+# For localhost
+$ flask run # 127.0.0.1
+# For external server
+$ flask run --host "0.0.0.0" &
 ```
 
 ### Try it
@@ -80,7 +85,5 @@ $ python api.py &
 ```Bash
 $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
 ```
-
-If you want to stop it `pkill -f api.py`
 
 LICENSE: MIT

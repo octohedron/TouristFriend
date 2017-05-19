@@ -1,7 +1,6 @@
 import time
-
-from api_keys import F_CLIENT_ID, F_CLIENT_SECRET
-from business import Business
+from api.api_keys import F_CLIENT_ID, F_CLIENT_SECRET
+from api.business import Business
 import requests
 
 SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=5&query={}&client_id={}&client_secret={}&v={}'
@@ -33,7 +32,7 @@ def search(lat, lng, distance, query):
                                        venue['rating'],
                                        venue['ratingSignals'],
                                        (venue['location']['lat'], venue['location']['lng'])))
-        except:
+        except IndexError:
             pass
 
     return venue_list

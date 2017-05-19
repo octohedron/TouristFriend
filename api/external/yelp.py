@@ -1,6 +1,6 @@
 import requests
-from api_keys import Y_ID, Y_S
-from business import Business
+from api.api_keys import Y_ID, Y_S
+from api.business import Business
 
 
 def search(lat, lng, distance, query):
@@ -24,25 +24,24 @@ def search(lat, lng, distance, query):
 
     params = {}
     params['term'] = query
+    params['limit'] = 5
     params['longitude'] = lng
     params['latitude'] = lat
     params['radius_filter'] = distance
     data = requests.get("https://api.yelp.com/v3/businesses/search",
                         params=params, headers=headers).json()
-
     business_list = []
-
-    for i in range(0, 5):
+    for i in range(0, len(data['businesses'])):
         try:
             business = data['businesses'][i]
             business_list.append(Business(business['name'],
                                           business['location'][
-                                              'display_address'][0],
-                                          business['rating'],
-                                          business['review_count'],
-                                          (business["coordinates"]["latitude"],
-                                           business["coordinates"]["longitude"])))
-        except:
+                'display_address'][0],
+                business['rating'],
+                business['review_count'],
+                (business["coordinates"]["latitude"],
+                 business["coordinates"]["longitude"])))
+        except IndexError:
             pass
 
     return business_list
