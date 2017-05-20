@@ -17,10 +17,10 @@ CORS(app)
 def reviews(distance, location, query):
     locations = []
     coords = location.split(",")
-    # try:
-    location = (float(coords[0]), float(coords[1]))
-    locations.append(location)
-    businesses = execute_search(locations, distance, query)
-    return json.dumps(write_businesses(combine_duplicate_businesses(businesses)))
-    # except Exception:
-    #     return "Wrong parameters"
+    try:
+        location = (float(coords[0]), float(coords[1]))
+        locations.append(location)
+        businesses = execute_search(locations, distance, query)
+        return json.dumps(write_businesses(combine_duplicate_businesses(businesses)))
+    except Exception:
+        return "[]"
