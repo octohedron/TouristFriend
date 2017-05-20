@@ -78,7 +78,7 @@ def execute_search(locations, distance, query):
         average_rating = sum(
             business.rating for business in businesses) / len(businesses)
         # Convert to 10 point scale
-        if engine.__name__ == 'foursquare':
+        if engine.__name__ == 'api.external.foursquare':
             scale_multiplier = 1
         else:
             scale_multiplier = 2

@@ -86,6 +86,6 @@ $ flask run --host "0.0.0.0" &
 $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
 ```
 
-Feel free to use the `touristfriend.com` API for testing or demoing, if you plan on using it on production, consider deploying it yourself.
+Feel free to use the `touristfriend.club` API for testing or demoing, if you plan on using it on production, consider deploying it yourself.
 
 LICENSE: MIT
