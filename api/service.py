@@ -73,6 +73,7 @@ def execute_search(locations, distance, query):
             low_threshold = min(
                 business.rating_count for business in businesses)
         except:
+            # go to next item
             continue
         average_rating = sum(
             business.rating for business in businesses) / len(businesses)
