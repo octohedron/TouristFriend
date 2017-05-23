@@ -62,8 +62,8 @@ $ export G_API=YOUR_GOOGLE_API_KEY
 $ export YELP_ID=YOUR_YELP_ID
 $ export YELP_SECRET=YOUR_YELP_SECRET
 
-# Flask
-$ export FLASK_APP=$(pwd)/api/__init__.py
+# Flask app, standing on the root of the cloned repo
+$ export FLASK_APP=$(pwd)/touristfriend/__init__.py
 ```
 ### Install dependencies
 
