@@ -18,7 +18,7 @@ def search(lat, lng, distance, query):
                'client_id': Y_ID,
                'client_secret': Y_S}
 
-    token = requests.post('https://touristfriend.yelp.com/oauth2/token',
+    token = requests.post('https://api.yelp.com/oauth2/token',
                           params=payload).json()["access_token"]
     headers = {'Authorization': 'Bearer ' + token}
 
@@ -28,7 +28,7 @@ def search(lat, lng, distance, query):
     params['longitude'] = lng
     params['latitude'] = lat
     params['radius_filter'] = distance
-    data = requests.get("https://touristfriend.yelp.com/v3/businesses/search",
+    data = requests.get("https://api.yelp.com/v3/businesses/search",
                         params=params, headers=headers).json()
     business_list = []
     for i in range(0, len(data['businesses'])):

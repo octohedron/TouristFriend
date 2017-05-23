@@ -3,7 +3,7 @@ from touristfriend.api_keys import F_CLIENT_ID, F_CLIENT_SECRET
 from touristfriend.business import Business
 import requests
 
-SEARCH_URL = 'https://touristfriend.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=5&query={}&client_id={}&client_secret={}&v={}'
+SEARCH_URL = 'https://api.foursquare.com/v2/venues/explore?ll={},{}&intent=browse&radius={}&limit=5&query={}&client_id={}&client_secret={}&v={}'
 
 
 def search(lat, lng, distance, query):
