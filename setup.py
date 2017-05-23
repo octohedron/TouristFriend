@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 requirements = [
     'Flask>=0.12',
-    'flask-cors>=3.0.2'
+    'flask-cors>=3.0.2',
+    'requests'
 ]
 
 test_requirements = [
@@ -16,19 +17,19 @@ test_requirements = [
 
 
 setup(
-    name='TouristFriend',
-    version='v0.2.0',
+    name='touristfriend',
+    version='0.2.0',
     description="Query Google Places, Yelp and Foursquare",
     long_description="Query Google Places, Yelp and Foursquare simultaneously with ratings bayesian estimates",
     author="Gustavo Rodríguez",
     author_email='gustavrod@gmail.com',
     url='https://github.com/octohedron/TouristFriend',
-    packages=find_packages(),
+    packages=['touristfriend'],
     include_package_data=False,
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
-    keywords='TouristFriend',
+    keywords=['Yelp', 'FourSquare', 'Google Places'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -40,6 +41,5 @@ setup(
     tests_require=test_requirements,
     extras_require={
         'test': test_requirements
-    },
-    setup_requires=['pytest_runner']
+    }
 )

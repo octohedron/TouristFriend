@@ -1,5 +1,5 @@
-from api.api_keys import G_API_KEY
-from api.business import Business
+from touristfriend.api_keys import G_API_KEY
+from touristfriend.business import Business
 import requests
 
 SEARCH_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&types={}&key={}'
