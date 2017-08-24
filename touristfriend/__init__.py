@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__author__ = """Gustavo Rodríugez"""
+__author__ = """Gustavo Rodríguez"""
 __email__ = 'gustavrod@gmail.com'
 __version__ = 'v0.2.0'
 
