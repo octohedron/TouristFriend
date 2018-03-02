@@ -1,6 +1,6 @@
-import requests
 from touristfriend.api_keys import Y_ID, Y_S
 from touristfriend.business import Business
+import requests
 
 
 def search(lat, lng, distance, query):

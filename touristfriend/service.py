@@ -1,6 +1,6 @@
-import external.foursquare as foursquare
-import external.google as google
-import external.yelp as yelp
+from touristfriend.external import foursquare
+from touristfriend.external import google
+from touristfriend.external import yelp
 
 
 def bayesian(R, v, m, C):
