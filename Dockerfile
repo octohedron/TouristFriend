@@ -50,8 +50,6 @@ ENV YELP_ID=$YELP_ID
 ENV YELP_SECRET=$YELP_SECRET
 ENV FLASK_APP=touristfriend/__init__.py
 
-# Define environment variables
-
 # Ubuntu locale settings
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8

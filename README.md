@@ -86,6 +86,18 @@ $ flask run --host "0.0.0.0" &
 $ curl http://localhost:5000/api/40000/48.888001,2.337442/restaurants
 ```
 
+### With Docker example
+
+```Bash
+$ docker build -t tfriend --build-arg GMAPS_KEY=YOUR_GOOGLE_MAPS_KEY \
+  --build-arg F_ID=YOUR_FOURSQUARE_ID \
+  --build-arg F_C_S=YOUR_FOURSQUARE_CLIENT_SECRET \
+  --build-arg G_API=YOUR_GOOGLE_API_KEY \
+  --build-arg YELP_ID=YOUR_YELP_ID \
+  --build-arg YELP_SECRET=YOUR_YELP_SECRET . && \
+  docker run -p 5000:5000 tfriend
+```
+
 Feel free to use the `touristfriend.club` API for testing or demoing, if you plan on using it on production, consider deploying it yourself.
 
 LICENSE: MIT
