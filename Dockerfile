@@ -1,4 +1,3 @@
-# Use an official Python runtime as a parent image
 FROM ubuntu:16.04
 
 RUN apt-get update -y && \
@@ -38,23 +37,19 @@ ARG GMAPS_KEY
 ARG F_ID
 ARG F_C_S
 ARG G_API
-ARG YELP_ID
 ARG YELP_API_KEY
-ARG YELP_SECRET
 
 # Set them for the program
 ENV GMAPS_KEY=$GMAPS_KEY
 ENV F_ID=$F_ID
 ENV F_C_S=$F_C_S
 ENV G_API=$G_API
-ENV YELP_ID=$YELP_ID
 ENV YELP_API_KEY=$YELP_API_KEY
-ENV YELP_SECRET=$YELP_SECRET
 ENV FLASK_APP=touristfriend/__init__.py
 
 # Ubuntu locale settings
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
-# Run app.py when the container launches
+# Run the app when container launches
 CMD ["flask", "run", "--host", "0.0.0.0"]

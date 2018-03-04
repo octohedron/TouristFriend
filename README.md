@@ -59,8 +59,6 @@ $ export F_C_S=YOUR_FOURSQUARE_CLIENT_SECRET
 $ export G_API=YOUR_GOOGLE_API_KEY
 
 # Yelp
-$ export YELP_ID=YOUR_YELP_ID
-$ export YELP_SECRET=YOUR_YELP_SECRET
 $ export YELP_API_KEY=YOUR_YELP_API_KEY
 
 # Flask app, standing on the root of the cloned repo
@@ -94,9 +92,7 @@ $ docker build -t tfriend --build-arg GMAPS_KEY=YOUR_GOOGLE_MAPS_KEY \
   --build-arg F_ID=YOUR_FOURSQUARE_ID \
   --build-arg F_C_S=YOUR_FOURSQUARE_CLIENT_SECRET \
   --build-arg G_API=YOUR_GOOGLE_API_KEY \
-  --build-arg YELP_ID=YOUR_YELP_ID \
-  --build-arg YELP_API_KEY=YOUR_YELP_API_KEY \
-  --build-arg YELP_SECRET=YOUR_YELP_SECRET . && \
+  --build-arg YELP_API_KEY=YOUR_YELP_API_KEY . && \
   docker run -p 5000:5000 tfriend
 ```
 
