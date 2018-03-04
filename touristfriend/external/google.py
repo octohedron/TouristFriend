@@ -21,6 +21,7 @@ def search(lat, lng, distance, query):
     place_list = []
 
     data = requests.get(url).json()
+
     for i in range(0, len(data['results'])):
         try:
             result = data['results'][i]
@@ -28,7 +29,7 @@ def search(lat, lng, distance, query):
             place_list.append(place)
             if len(place_list) == 5:
                 break
-        except:
+        except Exception:
             pass
 
     return place_list
@@ -51,5 +52,5 @@ def search_place(place_id):
                         len(place['reviews']),
                         (place["geometry"]["location"]["lat"],
                             place["geometry"]["location"]["lng"]))
-    except IndexError:
+    except KeyError:
         pass

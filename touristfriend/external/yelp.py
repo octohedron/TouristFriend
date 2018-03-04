@@ -1,6 +1,7 @@
-from touristfriend.api_keys import Y_ID, Y_S
+from touristfriend.api_keys import Y_KEY
 from touristfriend.business import Business
 import requests
+import json
 
 
 def search(lat, lng, distance, query):
@@ -14,13 +15,7 @@ def search(lat, lng, distance, query):
     :returns: List of retrieved businesses
     """
 
-    payload = {'grant_type': 'client_credentials',
-               'client_id': Y_ID,
-               'client_secret': Y_S}
-
-    token = requests.post('https://api.yelp.com/oauth2/token',
-                          params=payload).json()["access_token"]
-    headers = {'Authorization': 'Bearer ' + token}
+    headers = {'Authorization': 'Bearer ' + Y_KEY}
 
     params = {}
     params['term'] = query
@@ -28,19 +23,21 @@ def search(lat, lng, distance, query):
     params['longitude'] = lng
     params['latitude'] = lat
     params['radius_filter'] = distance
-    data = requests.get("https://api.yelp.com/v3/businesses/search",
-                        params=params, headers=headers).json()
+    response = requests.get("https://api.yelp.com/v3/businesses/search",
+                            params=params, headers=headers)
+    data = json.loads(response.content.decode('utf-8'))
     business_list = []
     for i in range(0, len(data['businesses'])):
         try:
             business = data['businesses'][i]
-            business_list.append(Business(business['name'],
-                                          business['location'][
-                'display_address'][0],
-                business['rating'],
-                business['review_count'],
-                (business["coordinates"]["latitude"],
-                 business["coordinates"]["longitude"])))
+            if business:
+                business_list.append(Business(business['name'],
+                                              business['location'][
+                    'display_address'][0],
+                    business['rating'],
+                    business['review_count'],
+                    (business["coordinates"]["latitude"],
+                     business["coordinates"]["longitude"])))
         except IndexError:
             pass
 

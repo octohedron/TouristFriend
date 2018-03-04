@@ -36,7 +36,7 @@ def write_businesses(businesses):
         result.append(
             {'Location':
              '{},{}'.format(business.location[0], business.location[1]),
-             'Name': business.name.encode('utf-8'),
+             'Name': business.name,
              'Rating': '{0:.2f}'.format(business.bayesian),
                        'Number_of_Ratings': business.rating_count,
                        'Sources': business.source_count})
@@ -54,19 +54,16 @@ def execute_search(locations, distance, query):
     """
     full_business_list = []
     for engine in [foursquare, google, yelp]:
-
         businesses = []
         for lat, lng in locations:
             businesses.extend(engine.search(lat, lng, distance, query))
-
         # Remove duplicates from API call overlap
         names = set()
         filtered_list = []
         for business in businesses:
-            if business is not None:
-                if business.name not in names:
-                    filtered_list.append(business)
-                    names.add(business.name)
+            if business:
+                filtered_list.append(business)
+                names.add(business.name)
         businesses = filtered_list
         # Calculate low threshold and average ratings
         try:

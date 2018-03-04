@@ -61,6 +61,7 @@ $ export G_API=YOUR_GOOGLE_API_KEY
 # Yelp
 $ export YELP_ID=YOUR_YELP_ID
 $ export YELP_SECRET=YOUR_YELP_SECRET
+$ export YELP_API_KEY=YOUR_YELP_API_KEY
 
 # Flask app, standing on the root of the cloned repo
 $ export FLASK_APP=$(pwd)/touristfriend/__init__.py

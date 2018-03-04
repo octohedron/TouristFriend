@@ -20,19 +20,21 @@ def search(lat, lng, distance, query):
     url = SEARCH_URL.format(lat, lng, distance,
                             query, F_CLIENT_ID, F_CLIENT_SECRET,
                             time.strftime("%Y%m%d"))
-    venue_list = []
 
+    venue_list = []
     data = requests.get(url).json()
     for i in range(0, len(data['response']['groups'][0]['items'])):
         try:
             item = data['response']['groups'][0]['items'][i]
             venue = item['venue']
             venue_list.append(Business(venue['name'],
-                                       venue['location']['address'],
+                                       ", ".join(
+                                       venue['location']['formattedAddress']),
                                        venue['rating'],
                                        venue['ratingSignals'],
-                                       (venue['location']['lat'], venue['location']['lng'])))
-        except IndexError:
+                                       (venue['location']['lat'],
+                                        venue['location']['lng'])))
+        except Exception:
             pass
 
     return venue_list
