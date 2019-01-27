@@ -2,7 +2,6 @@ from touristfriend.external import foursquare
 from touristfriend.external import google
 from touristfriend.external import yelp
 
-
 def bayesian(R, v, m, C):
     """
     Computes the Bayesian average for the given parameters
@@ -60,6 +59,7 @@ def execute_search(locations, distance, query):
         # Remove duplicates from API call overlap
         names = set()
         filtered_list = []
+        # print(time.strftime("%Y/%m/%d at %H:%M:%S ") + engine.__name__ + " " + str(len(businesses)))
         for business in businesses:
             if business:
                 filtered_list.append(business)
