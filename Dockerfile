@@ -34,15 +34,11 @@ EXPOSE 80
 
 # Args for private keys
 ARG GMAPS_KEY
-ARG F_ID
-ARG F_C_S
 ARG G_API
 ARG YELP_API_KEY
 
 # Set them for the program
 ENV GMAPS_KEY=$GMAPS_KEY
-ENV F_ID=$F_ID
-ENV F_C_S=$F_C_S
 ENV G_API=$G_API
 ENV YELP_API_KEY=$YELP_API_KEY
 ENV FLASK_APP=touristfriend/__init__.py
