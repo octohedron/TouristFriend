@@ -27,7 +27,7 @@ def search(lat, lng, distance, query):
             result = data['results'][i]
             place = search_place(result['place_id'])
             place_list.append(place)
-            if len(place_list) == 5:
+            if len(place_list) == 15:
                 break
         except Exception:
             pass

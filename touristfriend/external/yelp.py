@@ -19,7 +19,7 @@ def search(lat, lng, distance, query):
 
     params = {}
     params['term'] = query
-    params['limit'] = 5
+    params['limit'] = 15
     params['longitude'] = lng
     params['latitude'] = lat
     params['radius_filter'] = distance
