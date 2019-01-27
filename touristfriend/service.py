@@ -1,6 +1,6 @@
-from touristfriend.external import foursquare
 from touristfriend.external import google
 from touristfriend.external import yelp
+import time
 
 def bayesian(R, v, m, C):
     """
@@ -52,14 +52,14 @@ def execute_search(locations, distance, query):
     :returns: Full list of businesses
     """
     full_business_list = []
-    for engine in [foursquare, google, yelp]:
+    for engine in [google, yelp]:
         businesses = []
         for lat, lng in locations:
             businesses.extend(engine.search(lat, lng, distance, query))
         # Remove duplicates from API call overlap
         names = set()
         filtered_list = []
-        # print(time.strftime("%Y/%m/%d at %H:%M:%S ") + engine.__name__ + " " + str(len(businesses)))
+        print(time.strftime("%Y/%m/%d at %H:%M:%S ") + engine.__name__ + " " + str(len(businesses)))
         for business in businesses:
             if business:
                 filtered_list.append(business)
@@ -75,10 +75,7 @@ def execute_search(locations, distance, query):
         average_rating = sum(
             business.rating for business in businesses) / len(businesses)
         # Convert to 10 point scale
-        if engine.__name__ == 'touristfriend.external.foursquare':
-            scale_multiplier = 1
-        else:
-            scale_multiplier = 2
+        scale_multiplier = 2
         # Add bayesian estimates to business objects
         for business in businesses:
             business.bayesian = bayesian(business.rating * scale_multiplier,
