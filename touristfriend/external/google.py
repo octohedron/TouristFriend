@@ -46,11 +46,12 @@ def search_place(place_id):
     data = requests.get(url).json()
     place = data['result']
     try:
-        return Business(place['name'],
-                        place['formatted_address'].split(',')[0],
-                        place['rating'],
-                        len(place['reviews']),
-                        (place["geometry"]["location"]["lat"],
-                            place["geometry"]["location"]["lng"]))
+        if not "hotel" in (place['name'].lower()):
+            return Business(place['name'],
+                            place['formatted_address'].split(',')[0],
+                            place['rating'],
+                            len(place['reviews']),
+                            (place["geometry"]["location"]["lat"],
+                                place["geometry"]["location"]["lng"]))
     except KeyError:
         pass
