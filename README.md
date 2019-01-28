@@ -3,6 +3,8 @@
 
 TouristFriend is an API for searching and combining results from Google Places and Yelp.
 
+For the foursquare implementation check out the branch `foursquare`
+
 Returns a combined list of places ranked by their ratings as a Bayesian estimate
 
 ### Try it out
